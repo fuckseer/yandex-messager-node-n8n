@@ -481,151 +481,151 @@ export class YandexMessenger implements INodeType {
         // message: sendFile
         // ---------------------------
         if (resource === 'message' && operation === 'sendFile') {
-          const binaryPropertyName = this.getNodeParameter(
+        const binaryPropertyName = this.getNodeParameter(
             'binaryPropertyName',
             i,
-          ) as string;
+        ) as string;
 
-          const binaryData = this.helpers.assertBinaryData(i, binaryPropertyName);
-          const buffer = await this.helpers.getBinaryDataBuffer(i, binaryPropertyName);
+        const binaryData = this.helpers.assertBinaryData(i, binaryPropertyName);
+        const buffer = await this.helpers.getBinaryDataBuffer(i, binaryPropertyName);
 
-          const formData: IDataObject = {};
+        const credentials = await this.getCredentials('yandexMessengerApi');
 
-          const recipientType = this.getNodeParameter('recipientType', i) as string;
-          if (recipientType === 'chatId') {
+        const formData: Record<string, any> = {};
+
+        const recipientType = this.getNodeParameter('recipientType', i) as string;
+        if (recipientType === 'chatId') {
             formData.chat_id = this.getNodeParameter('chatId', i) as string;
-          } else {
+        } else {
             formData.login = this.getNodeParameter('login', i) as string;
-          }
+        }
 
-          const additionalFields = this.getNodeParameter(
+        const additionalFields = this.getNodeParameter(
             'additionalFieldsFile',
             i,
-          ) as IDataObject;
-          if (additionalFields.thread_id) {
-            formData.thread_id = additionalFields.thread_id;
-          }
-
-          const response = await this.helpers.httpRequestWithAuthentication.call(
-            this,
-            'yandexMessengerApi',
-            {
-              method: 'POST',
-              url: `${BASE_URL}/messages/sendFile/`,
-              formData: {
-                ...formData,
-                document: {
-                  value: buffer,
-                  options: {
-                    filename: binaryData.fileName || 'file',
-                    contentType: binaryData.mimeType,
-                  },
-                },
-              },
-              json: true,
-            },
-          );
-
-          returnData.push({ json: response as IDataObject });
+        ) as IDataObject;
+        if (additionalFields.thread_id) {
+            formData.thread_id = String(additionalFields.thread_id);
         }
+
+        formData.document = {
+            value: buffer,
+            options: {
+            filename: binaryData.fileName || 'file',
+            contentType: binaryData.mimeType,
+            },
+        };
+
+        const response = await this.helpers.request({
+            method: 'POST',
+            uri: `${BASE_URL}/messages/sendFile/`,
+            headers: {
+            Authorization: `OAuth ${credentials.botToken}`,
+            },
+            formData,
+            json: true,
+        });
+
+        returnData.push({ json: response as IDataObject });
+}
 
         // ---------------------------
         // message: sendImage
         // ---------------------------
         if (resource === 'message' && operation === 'sendImage') {
-          const binaryPropertyName = this.getNodeParameter(
+        const binaryPropertyName = this.getNodeParameter(
             'binaryPropertyName',
             i,
-          ) as string;
+        ) as string;
 
-          const binaryData = this.helpers.assertBinaryData(i, binaryPropertyName);
-          const buffer = await this.helpers.getBinaryDataBuffer(i, binaryPropertyName);
+        const binaryData = this.helpers.assertBinaryData(i, binaryPropertyName);
+        const buffer = await this.helpers.getBinaryDataBuffer(i, binaryPropertyName);
 
-          const formData: IDataObject = {};
+        const credentials = await this.getCredentials('yandexMessengerApi');
 
-          const recipientType = this.getNodeParameter('recipientType', i) as string;
-          if (recipientType === 'chatId') {
+        const formData: Record<string, any> = {};
+
+        const recipientType = this.getNodeParameter('recipientType', i) as string;
+        if (recipientType === 'chatId') {
             formData.chat_id = this.getNodeParameter('chatId', i) as string;
-          } else {
+        } else {
             formData.login = this.getNodeParameter('login', i) as string;
-          }
+        }
 
-          const additionalFields = this.getNodeParameter(
+        const additionalFields = this.getNodeParameter(
             'additionalFieldsImage',
             i,
-          ) as IDataObject;
-          if (additionalFields.thread_id) {
-            formData.thread_id = additionalFields.thread_id;
-          }
+        ) as IDataObject;
+        if (additionalFields.thread_id) {
+            formData.thread_id = String(additionalFields.thread_id);
+        }
 
-          const response = await this.helpers.httpRequestWithAuthentication.call(
-            this,
-            'yandexMessengerApi',
-            {
-              method: 'POST',
-              url: `${BASE_URL}/messages/sendImage/`,
-              formData: {
-                ...formData,
-                image: {
-                  value: buffer,
-                  options: {
-                    filename: binaryData.fileName || 'image.jpg',
-                    contentType: binaryData.mimeType,
-                  },
-                },
-              },
-              json: true,
+        formData.image = {
+            value: buffer,
+            options: {
+            filename: binaryData.fileName || 'image.jpg',
+            contentType: binaryData.mimeType,
             },
-          );
+        };
 
-          returnData.push({ json: response as IDataObject });
+        const response = await this.helpers.request({
+            method: 'POST',
+            uri: `${BASE_URL}/messages/sendImage/`,
+            headers: {
+            Authorization: `OAuth ${credentials.botToken}`,
+            },
+            formData,
+            json: true,
+        });
+
+        returnData.push({ json: response as IDataObject });
         }
 
         // ---------------------------
         // message: sendAlbum
         // ---------------------------
         if (resource === 'message' && operation === 'sendAlbum') {
-          const binaryPropertyNames = (
+        const binaryPropertyNames = (
             this.getNodeParameter('binaryPropertyNames', i) as string
-          )
+        )
             .split(',')
             .map((name) => name.trim());
 
-          const formData: IDataObject = {};
+        const credentials = await this.getCredentials('yandexMessengerApi');
 
-          const recipientType = this.getNodeParameter('recipientType', i) as string;
-          if (recipientType === 'chatId') {
+        const formData: Record<string, any> = {};
+
+        const recipientType = this.getNodeParameter('recipientType', i) as string;
+        if (recipientType === 'chatId') {
             formData.chat_id = this.getNodeParameter('chatId', i) as string;
-          } else {
+        } else {
             formData.login = this.getNodeParameter('login', i) as string;
-          }
+        }
 
-          // Add each image
-          for (let idx = 0; idx < binaryPropertyNames.length; idx++) {
+        for (let idx = 0; idx < binaryPropertyNames.length; idx++) {
             const propName = binaryPropertyNames[idx];
             const binaryData = this.helpers.assertBinaryData(i, propName);
             const buffer = await this.helpers.getBinaryDataBuffer(i, propName);
             formData[`image_${idx}`] = {
-              value: buffer,
-              options: {
+            value: buffer,
+            options: {
                 filename: binaryData.fileName || `image_${idx}.jpg`,
                 contentType: binaryData.mimeType,
-              },
-            };
-          }
-
-          const response = await this.helpers.httpRequestWithAuthentication.call(
-            this,
-            'yandexMessengerApi',
-            {
-              method: 'POST',
-              url: `${BASE_URL}/messages/sendAlbum/`,
-              formData,
-              json: true,
             },
-          );
+            };
+        }
 
-          returnData.push({ json: response as IDataObject });
+        const response = await this.helpers.request({
+            method: 'POST',
+            uri: `${BASE_URL}/messages/sendAlbum/`,
+            headers: {
+            Authorization: `OAuth ${credentials.botToken}`,
+            },
+            formData,
+            json: true,
+        });
+
+        returnData.push({ json: response as IDataObject });
         }
 
         // ---------------------------
