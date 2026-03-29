@@ -21,7 +21,9 @@
   },
   "main": "dist/index.js",
   "files": [
-    "dist/**/*"
+    "dist/**/*",
+    "LICENSE",
+    "README.md"
   ],
   "scripts": {
     "build": "tsc && cp nodes/YandexMessenger/yandex-messenger.png dist/nodes/YandexMessenger/",
