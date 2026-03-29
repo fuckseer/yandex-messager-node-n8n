@@ -294,4 +294,3 @@ npm install n8n-nodes-yandex-messenger
 [Report Bug](https://github.com/fuckseer/n8n-nodes-yandex-messenger/issues) · [Request Feature](https://github.com/fuckseer/n8n-nodes-yandex-messenger/issues)
 
 </div>
-```
