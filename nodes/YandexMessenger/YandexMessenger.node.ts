@@ -11,7 +11,7 @@ export class YandexMessenger implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Yandex Messenger',
     name: 'yandexMessenger',
-    icon: 'file:yandex-messenger.svg',
+    icon: 'file:yandex-messenger.png',
     group: ['output'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',

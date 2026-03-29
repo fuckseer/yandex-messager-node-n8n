@@ -11,7 +11,7 @@ export class YandexMessengerTrigger implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Yandex Messenger Trigger',
     name: 'yandexMessengerTrigger',
-    icon: 'file:yandex-messenger.svg',
+    icon: 'file:yandex-messenger.png',
     group: ['trigger'],
     version: 1,
     subtitle: 'Listens for Yandex Messenger updates via webhook',

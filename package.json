@@ -10,7 +10,7 @@
   "license": "MIT",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && cp nodes/YandexMessenger/yandex-messenger.png dist/nodes/YandexMessenger/",
     "dev": "tsc --watch",
     "prepublishOnly": "npm run build"
   },
@@ -31,4 +31,5 @@
   "peerDependencies": {
     "n8n-workflow": "*"
   }
+
 }
