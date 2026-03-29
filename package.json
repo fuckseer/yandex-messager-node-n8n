@@ -1,17 +1,30 @@
 {
   "name": "n8n-nodes-yandex-messenger",
   "version": "0.1.0",
-  "description": "n8n node for Yandex Messenger Bot API",
+  "description": "n8n node for Yandex Messenger Bot API - send text messages, files, images, albums and receive updates via webhook",
   "keywords": [
     "n8n-community-node-package",
+    "n8n",
     "yandex",
-    "messenger"
+    "messenger",
+    "yandex360",
+    "bot"
   ],
   "license": "MIT",
+  "author": {
+    "name": "Xenia Portnova",
+    "email": "xeniyaportnova@yandex.ru"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fuckseer/yandex-messager-node-n8n.git"
+  },
   "main": "dist/index.js",
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "build": "tsc && cp nodes/YandexMessenger/yandex-messenger.png dist/nodes/YandexMessenger/",
-    "dev": "tsc --watch",
     "prepublishOnly": "npm run build"
   },
   "n8n": {
@@ -31,5 +44,4 @@
   "peerDependencies": {
     "n8n-workflow": "*"
   }
-
 }
