@@ -19,7 +19,7 @@
 
 ### 📖 About
 
-This n8n community node lets you automate work in **Yandex Messenger** (part of Yandex 360 for Business) and integrate it with 400+ other services available in n8n. Built by the community, inspired by the architecture of the [Telegram node](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.telegram/) [5].
+This n8n community node lets you automate work in **Yandex Messenger** (part of Yandex 360 for Business) and integrate it with 400+ other services available in n8n. Built by the community, inspired by the architecture of the [Telegram node](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.telegram/) .
 
 ### 🚀 Installation
 
@@ -53,9 +53,9 @@ You need an **OAuth token** for your Yandex Messenger bot.
 
 | Operation | Description |
 |---|---|
-| **Send Text** | Send a text message with optional inline keyboard, reply, and threading support. Max 6000 characters [1] |
-| **Send File** | Send a file to a chat or user via `multipart/form-data` [2] |
-| **Send Image** | Send an image to a chat or user [3] |
+| **Send Text** | Send a text message with optional inline keyboard, reply, and threading support. Max 6000 characters  |
+| **Send File** | Send a file to a chat or user via `multipart/form-data`  |
+| **Send Image** | Send an image to a chat or user  |
 | **Send Album** | Send multiple images as an album |
 | **Delete** | Delete a message from a chat |
 
@@ -63,7 +63,7 @@ You need an **OAuth token** for your Yandex Messenger bot.
 
 | Operation | Description |
 |---|---|
-| **Set Webhook** | Set or remove the webhook URL for receiving updates [4] |
+| **Set Webhook** | Set or remove the webhook URL for receiving updates  |
 
 #### Yandex Messenger Trigger Node
 
@@ -82,22 +82,22 @@ Each message operation supports two recipient types:
 
 | Type | Parameter | Description |
 |---|---|---|
-| **Group Chat** | `chat_id` | Send to a group chat where the bot is a member [1] |
-| **User** | `login` | Send a private message to a user by login [1] |
+| **Group Chat** | `chat_id` | Send to a group chat where the bot is a member  |
+| **User** | `login` | Send a private message to a user by login  |
 
-> **Note:** At least one of `chat_id` or `login` must be provided. The bot can only send messages to chats where it is a member or admin [1].
+> **Note:** At least one of `chat_id` or `login` must be provided. The bot can only send messages to chats where it is a member or admin .
 
 ### 🛠 Send Text — Additional Fields
 
 | Field | Type | Description |
 |---|---|---|
-| `reply_message_id` | integer | Reply to a specific message [1] |
-| `inline_keyboard` | JSON | Array of inline buttons (max 100) [1] |
-| `disable_notification` | boolean | Disable notification for this message [1] |
-| `important` | boolean | Mark the message as important [1] |
-| `disable_web_page_preview` | boolean | Disable link previews [1] |
-| `thread_id` | integer | Open a thread under a specific message [1] |
-| `payload_id` | string | Unique request ID for deduplication [1] |
+| `reply_message_id` | integer | Reply to a specific message  |
+| `inline_keyboard` | JSON | Array of inline buttons (max 100)  |
+| `disable_notification` | boolean | Disable notification for this message  |
+| `important` | boolean | Mark the message as important  |
+| `disable_web_page_preview` | boolean | Disable link previews  |
+| `thread_id` | integer | Open a thread under a specific message  |
+| `payload_id` | string | Unique request ID for deduplication  |
 
 ### 📝 Example: Send a Text Message
 
@@ -121,22 +121,22 @@ Each message operation supports two recipient types:
 
 ### ⚠️ Limitations
 
-- Bot can only message chats where it's a **member or admin** [1]
-- Bot cannot send private messages to users who have **disabled it in privacy settings** [1]
-- Bot cannot message users **outside its organization** [1]
-- Text messages are limited to **6000 characters** [1]
-- Webhook delivery is **"at least once"** — duplicates are possible [4]
-- Webhook timeouts: connection = 100ms, read = 1s [4]
-- Undelivered webhook messages are **deleted after 24 hours** [4]
+- Bot can only message chats where it's a **member or admin** 
+- Bot cannot send private messages to users who have **disabled it in privacy settings** 
+- Bot cannot message users **outside its organization** 
+- Text messages are limited to **6000 characters** 
+- Webhook delivery is **"at least once"** — duplicates are possible 
+- Webhook timeouts: connection = 100ms, read = 1s 
+- Undelivered webhook messages are **deleted after 24 hours** 
 
 ### 🔗 API Reference
 
 | Endpoint | Documentation |
 |---|---|
-| Send Text | [API Docs](https://yandex.ru/dev/messenger/doc/ru/api-requests/message-send-text) [1] |
-| Send File | [API Docs](https://yandex.ru/dev/messenger/doc/ru/api-requests/message-send-file) [2] |
-| Send Image | [API Docs](https://yandex.ru/dev/messenger/doc/ru/api-requests/message-send-image) [3] |
-| Webhook | [API Docs](https://yandex.ru/dev/messenger/doc/ru/api-requests/update-webhook) [4] |
+| Send Text | [API Docs](https://yandex.ru/dev/messenger/doc/ru/api-requests/message-send-text)  |
+| Send File | [API Docs](https://yandex.ru/dev/messenger/doc/ru/api-requests/message-send-file)  |
+| Send Image | [API Docs](https://yandex.ru/dev/messenger/doc/ru/api-requests/message-send-image)  |
+| Webhook | [API Docs](https://yandex.ru/dev/messenger/doc/ru/api-requests/update-webhook)  |
 
 ### 🤝 Compatibility
 
@@ -155,7 +155,7 @@ Each message operation supports two recipient types:
 
 ### 📖 О проекте
 
-Эта community-нода для n8n позволяет автоматизировать работу с **Яндекс Мессенджером** (часть Яндекс 360 для бизнеса) и интегрировать его с более чем 400 сервисами, доступными в n8n. Создана сообществом, архитектура вдохновлена [Telegram-нодой](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.telegram/) [5].
+Эта community-нода для n8n позволяет автоматизировать работу с **Яндекс Мессенджером** (часть Яндекс 360 для бизнеса) и интегрировать его с более чем 400 сервисами, доступными в n8n. Создана сообществом, архитектура вдохновлена [Telegram-нодой](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.telegram/) .
 
 ### 🚀 Установка
 
@@ -189,9 +189,9 @@ npm install n8n-nodes-yandex-messenger
 
 | Операция | Описание |
 |---|---|
-| **Send Text** | Отправка текстового сообщения с поддержкой инлайн-кнопок, ответов и тредов. Максимум 6000 символов [1] |
-| **Send File** | Отправка файла в чат или пользователю через `multipart/form-data` [2] |
-| **Send Image** | Отправка изображения в чат или пользователю [3] |
+| **Send Text** | Отправка текстового сообщения с поддержкой инлайн-кнопок, ответов и тредов. Максимум 6000 символов  |
+| **Send File** | Отправка файла в чат или пользователю через `multipart/form-data`  |
+| **Send Image** | Отправка изображения в чат или пользователю  |
 | **Send Album** | Отправка нескольких изображений в виде альбома |
 | **Delete** | Удаление сообщения из чата |
 
@@ -199,7 +199,7 @@ npm install n8n-nodes-yandex-messenger
 
 | Операция | Описание |
 |---|---|
-| **Set Webhook** | Установка или удаление URL вебхука для получения обновлений [4] |
+| **Set Webhook** | Установка или удаление URL вебхука для получения обновлений  |
 
 #### Нода-триггер Yandex Messenger Trigger
 
@@ -218,22 +218,22 @@ npm install n8n-nodes-yandex-messenger
 
 | Тип | Параметр | Описание |
 |---|---|---|
-| **Групповой чат** | `chat_id` | Отправка в групповой чат, где бот является участником [1] |
-| **Пользователь** | `login` | Отправка личного сообщения пользователю по логину [1] |
+| **Групповой чат** | `chat_id` | Отправка в групповой чат, где бот является участником  |
+| **Пользователь** | `login` | Отправка личного сообщения пользователю по логину  |
 
-> **Важно:** Необходимо указать хотя бы один из параметров: `chat_id` или `login`. Бот может отправлять сообщения только в чаты, где он является участником или администратором [1].
+> **Важно:** Необходимо указать хотя бы один из параметров: `chat_id` или `login`. Бот может отправлять сообщения только в чаты, где он является участником или администратором .
 
 ### 🛠 Send Text — дополнительные поля
 
 | Поле | Тип | Описание |
 |---|---|---|
-| `reply_message_id` | integer | Ответ на конкретное сообщение [1] |
-| `inline_keyboard` | JSON | Массив инлайн-кнопок (макс. 100) [1] |
-| `disable_notification` | boolean | Отключить уведомление [1] |
-| `important` | boolean | Пометить сообщение как важное [1] |
-| `disable_web_page_preview` | boolean | Отключить раскрытие ссылок [1] |
-| `thread_id` | integer | Открыть тред под указанным сообщением [1] |
-| `payload_id` | string | Уникальный ID запроса для дедупликации [1] |
+| `reply_message_id` | integer | Ответ на конкретное сообщение  |
+| `inline_keyboard` | JSON | Массив инлайн-кнопок (макс. 100)  |
+| `disable_notification` | boolean | Отключить уведомление  |
+| `important` | boolean | Пометить сообщение как важное  |
+| `disable_web_page_preview` | boolean | Отключить раскрытие ссылок  |
+| `thread_id` | integer | Открыть тред под указанным сообщением  |
+| `payload_id` | string | Уникальный ID запроса для дедупликации  |
 
 ### 📝 Пример: отправка текстового сообщения
 
@@ -257,22 +257,22 @@ npm install n8n-nodes-yandex-messenger
 
 ### ⚠️ Ограничения
 
-- Бот может отправлять сообщения только в чаты, где он является **участником или администратором** [1]
-- Бот не может отправлять личные сообщения пользователям, **запретившим это в настройках приватности** [1]
-- Бот не может отправлять сообщения пользователям **вне своей организации** [1]
-- Текстовые сообщения ограничены **6000 символами** [1]
-- Доставка через вебхук работает по принципу **«at least once»** — возможны дубликаты [4]
-- Таймауты вебхука: connection = 100мс, read = 1с [4]
-- Недоставленные сообщения **удаляются через 24 часа** [4]
+- Бот может отправлять сообщения только в чаты, где он является **участником или администратором** 
+- Бот не может отправлять личные сообщения пользователям, **запретившим это в настройках приватности** 
+- Бот не может отправлять сообщения пользователям **вне своей организации** 
+- Текстовые сообщения ограничены **6000 символами** 
+- Доставка через вебхук работает по принципу **«at least once»** — возможны дубликаты 
+- Таймауты вебхука: connection = 100мс, read = 1с 
+- Недоставленные сообщения **удаляются через 24 часа** 
 
 ### 🔗 Справочник API
 
 | Эндпоинт | Документация |
 |---|---|
-| Отправка текста | [Документация](https://yandex.ru/dev/messenger/doc/ru/api-requests/message-send-text) [1] |
-| Отправка файла | [Документация](https://yandex.ru/dev/messenger/doc/ru/api-requests/message-send-file) [2] |
-| Отправка изображения | [Документация](https://yandex.ru/dev/messenger/doc/ru/api-requests/message-send-image) [3] |
-| Webhook | [Документация](https://yandex.ru/dev/messenger/doc/ru/api-requests/update-webhook) [4] |
+| Отправка текста | [Документация](https://yandex.ru/dev/messenger/doc/ru/api-requests/message-send-text)  |
+| Отправка файла | [Документация](https://yandex.ru/dev/messenger/doc/ru/api-requests/message-send-file)  |
+| Отправка изображения | [Документация](https://yandex.ru/dev/messenger/doc/ru/api-requests/message-send-image)  |
+| Webhook | [Документация](https://yandex.ru/dev/messenger/doc/ru/api-requests/update-webhook)  |
 
 ### 🤝 Совместимость
 
